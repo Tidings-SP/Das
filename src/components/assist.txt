@@ -1,0 +1,66 @@
+// iconComponents.js
+
+import React from 'react';
+import {
+  BarChartBig,
+  Package,
+  FolderOpen,
+  ShoppingBag,
+  Filter,
+  BriefcaseBusiness,
+} from 'lucide-react';
+
+export const iconComponents = [
+  <BarChartBig color="#000000" />,
+  <Package />,
+  <FolderOpen />,
+  <ShoppingBag />,
+  <Filter />,
+  <BriefcaseBusiness />,
+];
+
+// SideNavBar.js
+
+import React from 'react';
+import { Aperture } from 'lucide-react';
+
+function SideNavBar({ icons }) {
+  return (
+    <div className='flex flex-col p-6 items-center h-screen justify-between'>
+      <div className='flex flex-col items-center gap-10'>
+        <div className='p-4 px-6 rounded-full border mb-4'>
+          <h1 className='text-3xl font-bold'>S</h1>
+        </div>
+
+        {/* Map over the icons array to render each icon */}
+        {icons.map((Icon, index) => (
+          <div key={index} className='p-2 rounded-full w-fit bg-[#EEE097]'>
+            {Icon}
+          </div>
+        ))}
+      </div>
+
+      <div className='flex items-center justify-items-end'>
+        <Aperture />
+      </div>
+    </div>
+  );
+}
+
+export default SideNavBar;
+
+// App.js
+
+import React from 'react';
+import SideNavBar from './SideNavBar';
+import { iconComponents } from './iconComponents';
+
+function App() {
+  return (
+    <div className="App">
+      <SideNavBar icons={iconComponents} />
+    </div>
+  );
+}
+
+export default App;
